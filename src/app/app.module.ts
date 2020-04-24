@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { TopbarComponent } from './shared/components/topbar/topbar.component';
+import { NavbarsComponent } from './shared/components/navbars/navbars.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
+    TopbarComponent,
+    NavbarsComponent
   ],
   imports: [
     AppRoutingModule,
