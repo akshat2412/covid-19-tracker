@@ -16,7 +16,6 @@ export class TopbarComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private authService: AuthService,
-    private router: Router
   ) {}
 
   public ngOnInit(): void {
