@@ -27,7 +27,6 @@ export class DashboardViewComponent implements OnInit {
     this.isWaiting = true;
     this.covidDataService.getNationalData()
       .subscribe(res => {
-        console.log(res);
         this.tableData = res.map((stateData: IStateData) => {
           return {
             state: stateData.state,
@@ -41,14 +40,8 @@ export class DashboardViewComponent implements OnInit {
             }
           }
         });
-        console.log(this.tableData);
         this.isWaiting = false;
       });
-
-    this.covidDataService.getDistrictwiseData('AN').subscribe(res => {
-      console.log(res);
-    })
-
   }
 
 }

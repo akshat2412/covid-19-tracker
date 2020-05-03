@@ -1,0 +1,113 @@
+<div class="row gap-20" *ngIf="!isWaiting">
+  <div class="full-container">
+    <div class="email-app">
+      <div class="email-wrapper row bgc-white ov-h">
+        <div class="email-list h-100 layers">
+
+          <div class="layer w-100 fxg-1 scrollable pos-r" [perfectScrollbar]="config">
+            <div class="">
+              <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p" *ngFor="let newsItem of newsItems" [ngClass]="{'selected-news-item': newsItem.id === selectedId}">
+
+                <div class="peer peer-greed ov-h" (click)="onClickNewsItem(newsItem.id)">
+                  <div class="peers ai-c">
+                    <div class="peer peer-greed">
+                      <h6>{{newsItem.id}}</h6>
+                    </div>
+                    <!-- <div class="peer">
+                      <small>1 min ago</small>
+                    </div> -->
+                  </div>
+                  <h5 class="fsz-def tt-c c-grey-900">{{newsItem.title}}</h5>
+                  <span class="whs-nw w-100 ov-h tov-e d-b">{{newsItem.summary}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="email-content h-100">
+          <div class="h-100 scrollable pos-r">
+            <!-- <div class="bgc-grey-100 peers ai-c jc-sb p-20 fxw-nw d-n@md+">
+              <div class="peer">
+                <div class="btn-group" role="group">
+                  <button type="button" class="back-to-mailbox btn bgc-white bdrs-2 mR-3 cur-p">
+                    <i class="ti-angle-left"></i>
+                  </button>
+                  <button type="button" class="btn bgc-white bdrs-2 mR-3 cur-p">
+                    <i class="ti-folder"></i>
+                  </button>
+                  <button type="button" class="btn bgc-white bdrs-2 mR-3 cur-p">
+                    <i class="ti-tag"></i>
+                  </button>
+                  <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn cur-p bgc-white no-after dropdown-toggle"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="ti-more-alt"></i>
+                    </button>
+                    <ul class="dropdown-menu fsz-sm" aria-labelledby="btnGroupDrop1">
+                      <li>
+                        <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                          <i class="ti-trash mR-10"></i>
+                          <span>Delete</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                          <i class="ti-alert mR-10"></i>
+                          <span>Mark as Spam</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="" class="d-b td-n pY-5 pX-10 bgcH-grey-100 c-grey-700">
+                          <i class="ti-star mR-10"></i>
+                          <span>Star</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="peer">
+                <div class="btn-group" role="group">
+                  <button type="button" class="fsz-xs btn bgc-white bdrs-2 mR-3 cur-p">
+                    <i class="ti-angle-left"></i>
+                  </button>
+                  <button type="button" class="fsz-xs btn bgc-white bdrs-2 mR-3 cur-p">
+                    <i class="ti-angle-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div> -->
+            <div class="email-content-wrapper">
+              <!-- Header -->
+              <div class="peers ai-c jc-sb pX-40 pY-30">
+                <div class="peers peer-greed">
+                  <!-- <div class="peer mR-20">
+                    <img class="bdrs-50p w-3r h-3r" alt="" src="https://randomuser.me/api/portraits/men/11.jpg">
+                  </div> -->
+                  <div class="peer">
+                    <h4 class="c-grey-900 mB-5">Click icon to add news</h4>
+                    <!-- <span>To: email@gmail.com</span> -->
+                  </div>
+                </div>
+                <div class="peer">
+                  <a class="btn btn-danger bdrs-50p p-15 lh-0" [routerLink]="['add']">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="bdT pX-40 pY-30">
+                <h4>{{selectedNewsItem.title}}</h4>
+                <h6>{{selectedNewsItem.description}}</h6>
+                <p>
+                  {{selectedNewsItem.fullNews}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

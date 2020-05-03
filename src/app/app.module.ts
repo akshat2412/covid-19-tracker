@@ -5,6 +5,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +22,11 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { PrecautionsViewComponent } from './views/precautions-view/precautions-view.component';
 import { AddNewsViewComponent } from './views/add-news-view/add-news-view.component';
 import { MemoryService } from './shared/services/memory.service';
+import { NewsViewComponent } from './views/news-view/news-view.component';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -34,6 +41,7 @@ import { MemoryService } from './shared/services/memory.service';
     SidebarComponent,
     TableComponent,
     TopbarComponent,
+    NewsViewComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -42,9 +50,15 @@ import { MemoryService } from './shared/services/memory.service';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(MemoryService, { passThruUnknownUrl: true }),
     NgxMasonryModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PerfectScrollbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NewsService } from 'src/app/shared/services/news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-news-view',
@@ -10,7 +11,8 @@ import { NewsService } from 'src/app/shared/services/news.service';
 export class AddNewsViewComponent implements OnInit {
   public newsForm: FormGroup
   constructor(
-    private newsService: NewsService
+    private newsService: NewsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class AddNewsViewComponent implements OnInit {
 
   public addNews(news) {
     this.newsService.addNews(news);
-    this.newsService.getNews();
+    this.router.navigateByUrl('news');
   }
 
 }

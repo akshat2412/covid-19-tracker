@@ -27,9 +27,9 @@
       overflow-x: hidden;
     }
 
-    @include from($breakpoint-md) {
-      margin-left: 250px;
-    }
+    // @include from($breakpoint-md) {
+    //   margin-left: 250px;
+    // }
 
     .email-list {
       position: relative;
@@ -95,10 +95,10 @@
         }
       }
 
-      .email-wrapper {
-        @include to($breakpoint-md) {
-          left: 250px;
-        }
-      }
+      // .email-wrapper {
+      //   @include to($breakpoint-md) {
+      //     left: 250px;
+      //   }
+      // }
     }
 }
