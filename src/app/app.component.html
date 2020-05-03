@@ -314,7 +314,6 @@
       </svg>
     </a>
 </div> -->
-
 <app-sidebar></app-sidebar>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -326,5 +325,11 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-
-<router-outlet></router-outlet>
+<div class="page-container">
+  <app-topbar></app-topbar>
+  <main class='main-content bgc-grey-100'>
+    <div id='mainContent'>
+        <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

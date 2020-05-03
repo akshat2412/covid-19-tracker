@@ -1,0 +1,25 @@
+<div class="header navbar">
+  <div class="header-container">
+    <ul class="nav-left">
+      <li>
+        <a id='sidebar-toggle' class="sidebar-toggle" (click)="toggleCollapse()">
+          <i class="ti-menu"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav-right" *ngIf="isLoggedIn">
+      <li class="" >
+        <a class="btn btn-dngr" data-toggle="dropdown" (click)="onClickLogout()">
+          <i class="fa fa-sign-out"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
+          <div class="peer mR-10">
+            <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
