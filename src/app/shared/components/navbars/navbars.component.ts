@@ -10,19 +10,12 @@ import { DOCUMENT } from '@angular/common'
 export class NavbarsComponent implements OnInit {
 
   constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
+    
   ) { }
 
   ngOnInit(): void {
   }
 
-  public toggleCollapse(isCollapsed: boolean): void {
-    if (!isCollapsed) {
-      this.renderer.addClass(this.document.body, 'is-collapsed');
-    } else {
-      this.renderer.removeClass(this.document.body, 'is-collapsed');
-    }
-  }
+  
 
 }

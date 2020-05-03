@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject, Renderer2 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-topbar',
@@ -6,19 +7,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
-  @Output()
-  public toggleCollapse: EventEmitter<boolean>;
-
   private isCollapsed: boolean = false;
-  constructor() {
-    this.toggleCollapse = new EventEmitter();
-  }
 
-  ngOnInit(): void {
-  }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2,
+  ) {}
 
-  public toggleCollapsed(): void {
+  public ngOnInit(): void {}
+
+  public toggleCollapse(): void {
     this.isCollapsed = !this.isCollapsed;
-    this.toggleCollapse.emit(this.isCollapsed);
+    if (!this.isCollapsed) {
+      this.renderer.addClass(this.document.body, 'is-collapsed');
+    } else {
+      this.renderer.removeClass(this.document.body, 'is-collapsed');
+    }
   }
 }

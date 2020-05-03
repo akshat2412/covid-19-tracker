@@ -1,0 +1,17 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">{{header.displayName}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <ng-container *ngFor="let header of headers">
+            <td *ngIf="!row.link || row.link.property !== header.fieldName">{{row[header.fieldName]}}</td>
+            <td *ngIf="row.link && row.link.property === header.fieldName">
+                <a href="" [routerLink]="row.link.redirectPath">{{row[header.fieldName]}}</a>
+            </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
